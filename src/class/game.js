@@ -3,27 +3,23 @@
  **/
 
 var instance = null;
+export const MAX_X = 10;
+export const MAX_Y = 10;
 
-class Game {
-  static get MAX_X() {
-    return 10;
-  }
-  static get MAX_Y() {
-    return 10;
-  }
-
+export class Game {
   constructor() {
     if (!instance) {
-      console.log('creating');
       instance = this;
 
+      // initialise board
       this.board = [];
-      // // initialise board
-      // board = new Array(this.MAX_X);
-
-      // for (let idx=0; idx<this.MAX_X; idx++) {
-      //   board[idx] = new Array(this.MAX_Y);
-      // }
+      for (let idx=0; idx<MAX_X; idx++) {
+        let row = [];
+        for (let idy=0; idy<MAX_Y; idy++) {
+          row.push('W');
+        }
+        this.board.push(row);
+      }
     }
 
     return instance;
@@ -39,5 +35,3 @@ class Game {
   }
 
 }
-
-module.exports = Game;

@@ -29,7 +29,7 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= config.src %>/{,*/}*.js'],
-        tasks: ['jshint:all'],
+        tasks: ['jshint:all', 'babel'],
         options: {
         }
       },
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
-          'Gruntfile.js',
+          '!Gruntfile.js',
           '<%= config.src %>/{,*/}*.js'
         ]
       }
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-jasmine-node');
+  grunt.loadNpmTasks('grunt-jasmine-node-new');
 
   grunt.registerTask('build', [
     'clean:dist',
