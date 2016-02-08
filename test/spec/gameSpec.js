@@ -1,5 +1,5 @@
-var _require = require('../../.tmp/src/class/game.js');
-var Player = require('../../.tmp/src/class/player.js').Player;
+var _require = require('../../.tmp/class/game.js');
+var Player = require('../../.tmp/class/player.js').Player;
 var Game = _require.Game;
 var MAX_X = _require.MAX_X;
 var MAX_Y = _require.MAX_Y;

@@ -1,8 +1,8 @@
-var _require = require('../../.tmp/src/class/player.js');
+var _require = require('../../.tmp/class/player.js');
 var Player = _require.Player;
-_require = require('../../.tmp/src/class/boats/destroyer.js');
+_require = require('../../.tmp/class/boats/destroyer.js');
 var Destroyer = _require.Destroyer;
-_require = require('../../.tmp/src/class/boats/battleship.js');
+_require = require('../../.tmp/class/boats/battleship.js');
 var Battleship = _require.Battleship;
 
 describe('Test Player class', function() {
