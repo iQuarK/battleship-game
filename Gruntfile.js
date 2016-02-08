@@ -17,7 +17,8 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     src: 'src',
-    tmp: '.tmp'
+    tmp: '.tmp',
+    dist: 'dist'
   };
 
   // Define the configuration for all the tasks
@@ -28,8 +29,8 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-        files: ['<%= config.src %>/{,*/}*.js'],
-        tasks: ['jshint:all', 'babel'],
+        files: ['<%= config.src %>/{,**/}*.js'],
+        tasks: ['jshint:all', 'babel:test'],
         options: {
         }
       },
@@ -47,7 +48,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           '!Gruntfile.js',
-          '<%= config.src %>/{,*/}*.js'
+          '<%= config.src %>/{,**/}*.js'
         ]
       }
     },
@@ -63,9 +64,21 @@ module.exports = function (grunt) {
             files: [{
               expand: true,
               dot: true,
+              cwd: '<%= config.src %>',
+              dest: '<%= config.dist %>',
+              src: [
+                '{,**/}*.js'
+              ]
+            }]
+        },
+        test: {
+            files: [{
+              expand: true,
+              dot: true,
+              cwd: '<%= config.src %>',
               dest: '<%= config.tmp %>',
               src: [
-                '<%= config.src %>/{,*/}*.js'
+                '{,**/}*.js'
               ]
             }]
         }
@@ -87,12 +100,12 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'jshint:all',
-    'babel'
+    'babel:dist'
   ]);
 
   grunt.registerTask('test', [
     'clean:dist',
-    'babel',
+    'babel:test',
     'jasmine_node'
   ]);
 

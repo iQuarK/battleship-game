@@ -1,3 +1,4 @@
 node_module
 .tmp
 node_modules
+dist
