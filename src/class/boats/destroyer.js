@@ -1,5 +1,5 @@
 /**
- * Battleship: Boat with 5 squares
+ * Destroyer: Boat with 4 squares
  **/
 
 var {Boat} = require('../boat.js');

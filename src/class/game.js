@@ -33,10 +33,9 @@ export class Game {
     return instance;
   }
 
+  // initialises the game
   start() {
-
-    console.log('finished: ',this.player.finished());
-   console.log('starting game!');
+   console.log('starting the game!');
 
     while(!this.player.finished()) {
       this.player.render();
@@ -74,6 +73,7 @@ export class Game {
     }
   }
 
+  // check if the movement has the correct format, if yes it is translated to numbers
   formatMovement(movement) {
     let result = false;
 
